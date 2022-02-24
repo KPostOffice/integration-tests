@@ -50,7 +50,7 @@ def step_impl(context, package_name, package_version):
     url = f"{context.scheme}://{context.management_api_host}/api/v1/solver/python"
     response = requests.post(
         url,
-        json={"package_name": package_name, "version_specifier": "==" + package_version},
+        json={"package_name": package_name, "version_specifier": "==" + package_version, "force_sync": True},
         params={"secret": context.management_api_secret},
     )
 
